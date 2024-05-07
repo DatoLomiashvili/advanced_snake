@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AdvancedSnake.MainWindow"
+        Title="AdvancedSnake" Height="500" Width="800"
+        MinWidth="300" MinHeight="300"
+        
+        Background="{StaticResource BackgroundColor}"
+        Foreground="{StaticResource TextColor}"
+        FontFamily="{StaticResource MainFont}"
+        WindowStartupLocation="CenterScreen"
+        PointerPressed="Pointer_Pressed"
+        KeyDown="Window_KeyDown">
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+        
+            <TextBlock x:Name="ScoreText"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="SCORE 0"
+                       FontSize="22"
+                       Margin="10"></TextBlock>
+            <Border x:Name="GridBorder"
+                    Grid.Row="1"
+                    BorderBrush="{StaticResource GridLineColor}"
+                    BorderThickness="1.5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="20,0,20,20">
+                <UniformGrid x:Name="GameGrid"
+                             Width="400"
+                             Height="400"
+                             Background="{StaticResource GridBackgroundColor}"
+                             UseLayoutRounding="True"
+                >
+                </UniformGrid>
+            </Border>
+            
+            <Border x:Name="Overlay"
+                    Grid.Row="1"
+                    Background="{StaticResource OverlayColor}"
+                    Width="{Binding Path=Width, ElementName=GridBorder}"
+                    Height="{Binding Path=Height, ElementName=GridBorder}"
+                    Margin="{Binding Path=Margin, ElementName=GridBorder}">
+                <TextBlock x:Name="OverlayText"
+                           Text="PRESS THE MOUSE TO START"
+                           FontSize="26"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"></TextBlock>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>
