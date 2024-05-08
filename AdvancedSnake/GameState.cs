@@ -155,9 +155,9 @@ public class GameState
         switch (hit)
         {
             case GridValue.Snake:
-            case GridValue.Outside:
                 GameOver = true;
                 break;
+            case GridValue.Outside:
             case GridValue.Empty:
                 RemoveTail(TailPosition());
                 AddHead(newHeadPos);

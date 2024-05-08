@@ -16,7 +16,33 @@ public class Position
 
     public Position Translate(Direction direction)
     {
-        return new Position(Row + direction.RowOffSet, Col + direction.ColOffSet);
+        int rowOffSet, colOffSet;
+        if (Row + direction.RowOffSet < 0)
+        {
+            rowOffSet = 14;
+        }
+        else if(Row + direction.RowOffSet > 14)
+        {
+            rowOffSet = 0;
+        }
+        else
+        {
+            rowOffSet = Row + direction.RowOffSet;
+        }
+        
+        if (Col + direction.ColOffSet < 0)
+        {
+            colOffSet = 14;
+        }
+        else if(Col + direction.ColOffSet > 14)
+        {
+            colOffSet = 0;
+        }
+        else
+        {
+            colOffSet = Col + direction.ColOffSet;
+        }
+        return new Position(rowOffSet, colOffSet);
     }
     
     public override bool Equals(object obj)
